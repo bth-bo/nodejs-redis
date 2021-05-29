@@ -4,8 +4,8 @@ var redis = require('redis');
 
 
 app.get('/hello1', function (req, res) {
-   writeSession()
-   res.send("Hello-1")
+  writeSession()
+  res.send("Hello-1")
 })
 
 app.listen(8000, () => console.log('Hello-1 listening on port 8000!'))
@@ -22,12 +22,12 @@ function writeSession() {
         throw error;
     }
     if(id == null) {
-    	id = 1
+      id = 1
     } else {
-    	id = Number(id) + 1
+      id = Number(id) + 1
     }
     client.set('lastest_session_id', id , redis.print);
- 	  client.set(id, utcDate ,redis.print);
- 	  console.log(id)
+    client.set(id, utcDate ,redis.print);
+    console.log(id)
   })
 }

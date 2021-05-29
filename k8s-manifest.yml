@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-2
+  template:
+    metadata:
+      labels:
+        app: hello-2
+    spec:
+      containers:
+      - name: hello-2
+        image: localhost:32000/hello-2:testlocal
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+
