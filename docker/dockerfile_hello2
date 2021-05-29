@@ -3,7 +3,8 @@ FROM node:10
 # Create app directory
 WORKDIR /usr/src/app
 
-# Copy all files to container
+# Copy js files to container
+COPY ./app/hello-2.js .
 COPY . .
 
 # Install dependencies
