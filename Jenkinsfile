@@ -17,16 +17,16 @@ pipeline {
                     def branchName = ''
 
                     if ( _branch.size() != 1 ) {
-                            branchType = "${_branch[0]}"
-                            branchName = "${_branch[1]}"
-                            imageTag = "${imageTag}"
+                            env.branchType = "${_branch[0]}"
+                            env.branchName = "${_branch[1]}"
+                            env.imageTag = "${imageTag}"
                     } else {
-                            branchType = "${_branch}"
-                            branchName = "${_branch}"
+                            env.branchType = "${_branch}"
+                            env.branchName = "${_branch}"
                         if ( branchType == "master" ) {
-                            imageTag = "latest"
+                            env.imageTag = "latest"
                         } else {
-                            imageTag = "${imageTag}"
+                            env.imageTag = "${imageTag}"
                         }
                     }
                     
