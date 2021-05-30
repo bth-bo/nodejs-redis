@@ -2,17 +2,41 @@ pipeline {
     agent any
 
     environment {
-        imageName = "hello-1-k8s"
-        registry = "localhost:32000/${imageName}"
+        //imageName = "hello-2-k8s"
+        registry = "localhost:32000"
         dockerImage = ''
     }
 
     stages {
-        stage('Checkout SCM'){
+        stage('Info'){
             steps {
-                echo env.BRANCH_NAME
+                script {
+                    def _branch = ${env.BRANCH_NAME}.split("/")
+                    def imageTag = ${env.BUILD_NUMBER}
+                    def branchType = ''
+                    def branchName = ''
+
+                    if ( _branch.length() != 1 ) {
+                            branchType = ${_branch[0]}
+                            branchName = ${_branch[1]}
+                            imageTag = ${imageTag}
+                    } else {
+                            branchType = ${_branch}
+                            branchName = ${_branch}
+                        if ( branchType == "master" ) {
+                            imageTag = "latest"
+                        } else {
+                            imageTag = ${imageTag}
+                        }
+                    }
+                    
+                    echo "Project Name: " + ${env.JOB_NAME}
+                    echo "Branch type: " + ${branchType}
+                    echo "Branch name: " + ${env.BRANCH_NAME}
+
+                    }
+                }
             }
-        }
         stage('Build') {
             steps {
                 script {
@@ -23,12 +47,18 @@ pipeline {
 
         stage('Clean old Image') {
             steps {
-                    //foundOldImage = sh(script: "docker images | grep localhost:32000/hello-2 | grep latest | awk '{print $3}')
+                script { 
+                    def imageName = "${registry}/${branchName}" 
+                    echo "Image Name: ${imageName}"
+                }
+                foundOldImage = sh(script: "docker images | grep ${imageName} | grep ${imageTag} | awk '{print $3}'")
                 script {
-                    sh 'docker rmi localhost:32000/hello-1-k8s'
+                    if !( $foundOldImage.isEmpty() ) {
+                        sh 'docker rmi localhost:32000/hello-1-k8s'
+                        } 
+                    }  
                 }
             }
-        }
 
         stage('Build Image') {
             steps {
