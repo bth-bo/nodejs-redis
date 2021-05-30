@@ -59,7 +59,7 @@ pipeline {
                     echo "Old Image: ${oldImageID}"
 
                     if ( "${oldImageID}" != '' ) {
-                        sh 'docker rmi ${oldImageID}'
+                        sh 'docker rmi \${oldImageID} -f'
                     } else {
                         echo "No image to delete..."
                         } 
