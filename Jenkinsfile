@@ -54,8 +54,10 @@ pipeline {
                     def oldImageID = sh(script: "docker images -qf reference=\${imageName}:\${imageTag}")
                     echo "${oldImageID}"
 
-                    if ( ! "${oldImageID}".isEmpty() ) {
+                    if ( "${oldImageID}" != null ) {
                         sh 'docker rmi \${oldImageID}'
+                    } else {
+                        echo "No image to delete..."
                         } 
                     }  
                 }
@@ -64,7 +66,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":latest"
+                    dockerImage = docker.build "${imageName}" + ":" + "${imageTag}"
                 }
             }
         }
