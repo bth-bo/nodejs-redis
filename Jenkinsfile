@@ -50,15 +50,15 @@ pipeline {
                 script { 
                     def imageName = "${registry}" + "/" + "${branchName}"
                     def oldImageID = sh( 
-                                            script: 'docker images -qf reference=\${imageName}:\${imageTag}',
+                                            script: 'docker images -qf reference=${imageName}:${imageTag}',
                                             returnStdout: true
                                         )
 
                     echo "Image Name: " +  "${imageName}"
-                    echo "Old Image: \${oldImageID}"
+                    echo "Old Image: ${oldImageID}"
 
                     if ( "${oldImageID}" == null ) {
-                        sh 'docker rmi \${oldImageID}'
+                        sh 'docker rmi ${oldImageID}'
                     } else {
                         echo "No image to delete..."
                         } 
