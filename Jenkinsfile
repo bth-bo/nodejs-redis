@@ -19,7 +19,7 @@ pipeline {
                     if ( _branch.size() != 1 ) {
                             env.branchType = "${_branch[0]}"
                             env.branchName = "${_branch[1]}"
-                            env.imageTag = "${imageTag}"
+                            env.imageTag = "${branchType}" + "${imageTag}"
                     } else {
                             env.branchType = "${_branch}"
                             env.branchName = "${_branch}"
@@ -51,11 +51,11 @@ pipeline {
                     def imageName = "${registry}" + "/" + "${branchName}"
                     env.imageName = "${imageName}"
                     def oldImageID = sh( 
-                                            script: 'docker images -qf reference=${imageName}:${imageTag}',
+                                            script: 'docker images -qf reference=\${imageName}:\${imageTag}',
                                             returnStdout: true
                                         )
 
-                    echo "Image Name: " +  "${imageName}"
+                    echo "Image Name: " + "${imageName}"
                     echo "Old Image: ${oldImageID}"
 
                     if ( "${oldImageID}" != '' ) {
@@ -85,8 +85,9 @@ pipeline {
 
         stage('Deploying to k8s') {
             steps {
-                sh 'kubectl apply -f ./yaml/hello-1/hello-1-deployment.yaml'
-                sh 'kubectl apply -f ./yaml/hello-1/hello-1-service.yaml'
+                sh 'kubectl apply -f ./yaml/\${branchName}/\${branchName}-deployment.yaml'
+                sh 'kubectl apply -f ./yaml/\${branchName}/\${branchName}-service.yaml'
+               // sh 'kubectl apply -f ./yaml/hello-1/hello-1-service.yaml'
             }
         }
     }
