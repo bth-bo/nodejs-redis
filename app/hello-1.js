@@ -4,11 +4,11 @@ var redis = require('redis');
 
 app.get('/hello1', function (req, res) {
   writeSession()
-  res.send("Hello-1")
+  res.send("Hello-1 world!")
 })
 
 // app.listen(8000, () => console.log('Hello-1 listening on port 8000!'))
-app.listen(8000, () => console.log('Hello-1 modify listening on port 8000!'))
+app.listen(8000, () => console.log('Hello-1 listening on port 8000!'))
 
 function writeSession() {
   var dt = new Date();
