@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 var redis = require('redis');
 
-
 app.get('/hello1', function (req, res) {
   writeSession()
   res.send("Hello-1")

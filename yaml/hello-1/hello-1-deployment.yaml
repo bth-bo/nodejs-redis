@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-1
+  template:
+    metadata:
+      labels:
+        app: hello-1
+    spec:
+      containers:
+      - name: hello-1
+        image: localhost:32000/hello-1:testlocal
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+        - name: host
+          value: redis
+        - name: port
+          value: "6379"
