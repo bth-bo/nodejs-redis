@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         imageName = "hello-1-k8s"
-        registry = "localhost:32000/" + ${imageName}
+        registry = "localhost:32000/${imageName}"
         dockerImage = ''
     }
 
