@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry "localhost:32000/hello-2"
+        registry = "localhost:32000/hello-2"
         dockerImage = ''
     }
 
@@ -14,6 +14,7 @@ pipeline {
                 }
             }
         }
+    }
 
         stage('Build Image') {
             steps {
@@ -38,4 +39,3 @@ pipeline {
             }
         }
     }
-}
