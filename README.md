@@ -70,9 +70,15 @@ create credential(generally, username and password)
 - Perform ```Scan Multibranch Pipeline Now``` from the left panel
 
 ## Setup Nginx Reverse proxy
+- Go to nginx installation path
 ```cd /etc/nginx/sites-available/```
-edit default by adding content in ```nginx-nodejs.txt``` under server section
+- edit default by adding content in ```nginx-nodejs.txt``` under server section
+- Restart service for taking action
 ``` sudo systemctl restart nginx.service```
+
+** You should be able to visit nodejs app**
+- hello-1: http://localhost/hello
+- hello-2: http://localhost/hello2
 
 
 
