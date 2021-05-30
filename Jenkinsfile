@@ -33,8 +33,8 @@ pipeline {
 
         stage('Deploying to k8s') {
             steps {
-                sh 'kubectl apply -f ./yaml/hello-1/hello-1-deployment.yml'
-                sh 'kubectl apply -f ./yaml/hello-1/hello-1-service.yml'
+                sh 'kubectl apply -f ./yaml/hello-1/hello-1-deployment.yaml'
+                sh 'kubectl apply -f ./yaml/hello-1/hello-1-service.yaml'
             }
         }
     }
