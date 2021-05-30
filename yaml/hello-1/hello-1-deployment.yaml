@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: hello-1
-        image: localhost:32000/hello-1:testlocal
-        imagePullPolicy: IfNotPresent
+        image: localhost:32000/hello-1:feature
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         env:
