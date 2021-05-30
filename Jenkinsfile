@@ -14,7 +14,7 @@ pipeline {
                 }
             }
         }
-    }
+    
 
         stage('Build Image') {
             steps {
@@ -39,3 +39,4 @@ pipeline {
             }
         }
     }
+}
