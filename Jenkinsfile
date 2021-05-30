@@ -2,11 +2,15 @@ pipeline {
     agent any
 
     environment {
-        registry = "localhost:32000/hello-1-k8s"
+        imageName = "hello-1-k8s"
+        registry = "localhost:32000/" + ${imageName}
         dockerImage = ''
     }
 
     stages {
+        stage('Checkout SCM'){
+            echo env.BRANCH_NAME
+        }
         stage('Build') {
             steps {
                 script {
@@ -17,6 +21,7 @@ pipeline {
 
         stage('Clean old Image') {
             steps {
+                    //foundOldImage = sh(script: "docker images | grep localhost:32000/hello-2 | grep latest | awk '{print $3}')
                 script {
                     sh 'docker rmi localhost:32000/hello-1-k8s'
                 }
