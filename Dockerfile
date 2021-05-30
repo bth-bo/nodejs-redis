@@ -14,4 +14,3 @@ EXPOSE 8000
 
 # Start application
 CMD ["node","./app/hello-2.js"]
-

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: localhost:32000/jenkins-ci:localtest
+        image: localhost:32000/jenkins-node:latest
         imagePullPolicy: Always 
         ports:
         - name: http-port
