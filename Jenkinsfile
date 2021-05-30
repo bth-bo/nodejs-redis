@@ -16,19 +16,21 @@ pipeline {
                     def branchType = ''
                     def branchName = ''
 
-                    if ( _branch.length() != 1 ) {
-                            branchType = "${_branch[0]}"
-                            branchName = "${_branch[1]}"
-                            imageTag = "${imageTag}"
-                    } else {
-                            branchType = "${_branch}"
-                            branchName = "${_branch}"
-                        if ( branchType == "master" ) {
-                            imageTag = "latest"
-                        } else {
-                            imageTag = "${imageTag}"
-                        }
-                    }
+                    echo "_branch"
+
+                    // if ( _branch.length() != 1 ) {
+                    //         branchType = "${_branch[0]}"
+                    //         branchName = "${_branch[1]}"
+                    //         imageTag = "${imageTag}"
+                    // } else {
+                    //         branchType = "${_branch}"
+                    //         branchName = "${_branch}"
+                    //     if ( branchType == "master" ) {
+                    //         imageTag = "latest"
+                    //     } else {
+                    //         imageTag = "${imageTag}"
+                    //     }
+                    // }
                     
                     echo "Project Name: " + "${env.JOB_NAME}"
                     echo "Branch type: " + "${branchType}"
