@@ -15,6 +15,14 @@ pipeline {
             }
         }
 
+        stage('Clean old Image') {
+            steps {
+                script {
+                    sh 'docker rmi localhost:32000/hello-1-k8s'
+                }
+            }
+        }
+
         stage('Build Image') {
             steps {
                 script {
