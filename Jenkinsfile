@@ -16,7 +16,7 @@ pipeline {
                     def branchType = ''
                     def branchName = ''
 
-                    echo "_branch"
+                    echo "${_branch}"
 
                     // if ( _branch.length() != 1 ) {
                     //         branchType = "${_branch[0]}"
