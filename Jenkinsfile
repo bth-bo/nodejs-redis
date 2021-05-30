@@ -50,7 +50,7 @@ pipeline {
                 script { 
                     def imageName = "${registry}" + "/" + "${branchName}"
             
-                    echo "Image Name: ${imageName}"
+                    echo "Image Name:" +  "${imageName}"
                     oldImageID = sh(script: "docker images -qf reference=${imgName}:${imageTag}")
 
                     if ( !$foundOldImage.isEmpty() ) {
