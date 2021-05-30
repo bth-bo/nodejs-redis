@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     def _branch = "${env.BRANCH_NAME}".split("/")
-                    def imageTag = "${env.BUILD_NUMBER}"
+                    def imageTag = ''
                     def branchType = ''
                     def branchName = ''
 
@@ -26,7 +26,7 @@ pipeline {
                         if ( branchType == "master" ) {
                             env.imageTag = "latest"
                         } else {
-                            env.imageTag = "${imageTag}"
+                            env.imageTag = "${branchType}"
                         }
                     }
                     
