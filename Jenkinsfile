@@ -49,9 +49,9 @@ pipeline {
             steps {
                 script { 
                     def imageName = "${registry}" + "/" + "${branchName}"
-            
+                    def oldImageID = sh( script: 'docker images -qf reference=\"${imageName}\":\"${imageTag}\"' )
+
                     echo "Image Name: " +  "${imageName}"
-                    def oldImageID = sh(script: "docker images -qf reference=\${imageName}:\${imageTag}")
                     echo "${oldImageID}"
 
                     if ( "${oldImageID}" != null ) {
