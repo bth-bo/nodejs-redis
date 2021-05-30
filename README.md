@@ -76,7 +76,7 @@ create credential(generally, username and password)
 - Restart service for taking action
 ``` sudo systemctl restart nginx.service```
 
-** You should be able to visit nodejs app**
+**You should be able to visit nodejs app**
 - hello-1: http://localhost/hello
 - hello-2: http://localhost/hello2
 
