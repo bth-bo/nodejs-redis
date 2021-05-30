@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry "localhost:32000/hello-1-k8s"
+        registry = "localhost:32000/hello-1-k8s"
         dockerImage = ''
     }
 
