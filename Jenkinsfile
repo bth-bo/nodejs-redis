@@ -48,7 +48,7 @@ pipeline {
         stage('Clean old Image') {
             steps {
                 script { 
-                    def imageName = "${registry}/${branchName}"
+                    def imageName = "${registry}" + "/" + "${branchName}"
             
                     echo "Image Name: ${imageName}"
                     oldImageID = sh(script: "docker images -qf reference=${imgName}:${imageTag}")
