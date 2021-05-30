@@ -19,14 +19,14 @@ pipeline {
                     if ( _branch.size() != 1 ) {
                             env.branchType = "${_branch[0]}"
                             env.branchName = "${_branch[1]}"
-                            env.imageTag = env.branchType + "-" + env.BUILD_NUMBER
+                            env.imageTag = env.branchType
                     } else {
                             env.branchType = "${_branch}"
                             env.branchName = "${_branch}"
                         if ( branchType == "master" ) {
                             env.imageTag = "latest"
                         } else {
-                            env.imageTag = "${branchType}"
+                            env.imageTag = env.branchType
                         }
                     }
                     
@@ -87,7 +87,6 @@ pipeline {
             steps {
                 sh 'kubectl apply -f ./yaml/\${branchName}/\${branchName}-deployment.yaml'
                 sh 'kubectl apply -f ./yaml/\${branchName}/\${branchName}-service.yaml'
-               // sh 'kubectl apply -f ./yaml/hello-1/hello-1-service.yaml'
             }
         }
     }
