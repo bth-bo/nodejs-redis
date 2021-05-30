@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    tools {nodejs "nodeJS"}
+
     environment {
         registry = "localhost:32000/hello-2"
         dockerImage = ''
