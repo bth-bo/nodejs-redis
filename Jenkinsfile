@@ -54,7 +54,7 @@ pipeline {
                     def oldImageID = sh(script: "docker images -qf reference=\${imageName}:\${imageTag}")
                     echo "${oldImageID}"
 
-                    if ( !$oldImageID.isEmpty() ) {
+                    if ( ! "${oldImageID}".isEmpty() ) {
                         sh 'docker rmi \${oldImageID}'
                         } 
                     }  
