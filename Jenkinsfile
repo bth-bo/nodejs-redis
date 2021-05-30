@@ -19,7 +19,7 @@ pipeline {
                     if ( _branch.size() != 1 ) {
                             env.branchType = "${_branch[0]}"
                             env.branchName = "${_branch[1]}"
-                            env.imageTag = "${branchType}" + "-" + "${imageTag}"
+                            env.imageTag = env.branchType + "-" + env.BUILD_NUMBER
                     } else {
                             env.branchType = "${_branch}"
                             env.branchName = "${_branch}"
