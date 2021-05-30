@@ -51,10 +51,10 @@ pipeline {
                     def imageName = "${registry}/${branchName}" 
                     echo "Image Name: ${imageName}"
                 }
-                foundOldImage = sh(script: "docker images | grep '${imageName}' | grep '${imageTag}' | awk '{print $3}'")
+                oldImageID = sh(script: "docker images -qf reference=${imgName}:${imageTag}")
                 script {
                     if !( $foundOldImage.isEmpty() ) {
-                        sh 'docker rmi localhost:32000/hello-1-k8s'
+                        sh 'docker rmi ${oldImageID}'
                         } 
                     }  
                 }
