@@ -80,7 +80,7 @@ pipeline {
             steps {
                 script {
                     def dockerfile = "Dockerfile.${env.branchName}"
-                    dockerImage = docker.build("${imageName}" + ":" + "${imageTag}", "-f ${dockerfile} ./docker")
+                    dockerImage = docker.build("${imageName}" + ":" + "${imageTag}", "-f ${dockerfile} ./dockerfiles")
                 }
             }
         }
