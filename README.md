@@ -38,8 +38,9 @@ Create alias for shorter kubectl command
 **6. npm packages installed**
 
 ```npm i express
-npm i mocha supertest --save-dev```
-npm i redis```
+npm i mocha supertest --save-dev
+npm i redis
+```
 
 ## Usage
 
