@@ -6,3 +6,4 @@ app.get('/hello2', function (req, res) {
 })
 
 app.listen(8000, () => console.log('Hello-2 listening on port 8000!'))
+module.exports = app;
