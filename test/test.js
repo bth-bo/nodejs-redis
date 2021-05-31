@@ -2,7 +2,6 @@
 
 const request = require("supertest");
 const app = require("../app/hello-2");
-const app = express();
 
 describe("GET /", () => {
     it("respond with Hello-2", (done) => {
