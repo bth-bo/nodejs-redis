@@ -1,12 +1,12 @@
 /* simple integration test*/
 
 const request = require("supertest");
-const app = require("../app/hello-1");
+const app = require("../app/hello-2");
 const app = express();
 
 describe("GET /", () => {
-    it("respond with Hello-1", (done) => {
+    it("respond with Hello-2", (done) => {
         request(app)
-        .get("/hello1").expect("Hello-1", done)
+        .get("/hello2").expect("Hello-2", done)
     })
 });
