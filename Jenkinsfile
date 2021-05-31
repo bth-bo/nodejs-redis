@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        //imageName = "hello-2-k8s"
         registry = "localhost:32000"
         dockerImage = ''
     }
