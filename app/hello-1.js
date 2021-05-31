@@ -31,3 +31,5 @@ function writeSession() {
     console.log(id)
   })
 }
+
+ module.exports = app;
