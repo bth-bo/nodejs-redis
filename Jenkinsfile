@@ -45,6 +45,14 @@ pipeline {
             }
         }
 
+        stage('Test'){
+            steps {
+                script {
+                    sh 'npm test'
+                }
+            }
+        }
+
         stage('Clean old Image') {
             steps {
                 script { 
@@ -71,7 +79,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build "${imageName}" + ":" + "${imageTag}"
+                    dockerImage = docker.build("${imageName}" + ":" + "${imageTag}", "./dockerfiles/${env.branchName}")
                 }
             }
         }
@@ -92,4 +100,3 @@ pipeline {
         }
     }
 }
-
