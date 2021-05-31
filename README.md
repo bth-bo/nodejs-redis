@@ -71,8 +71,10 @@ mkctl apply -f redis-service.yaml
 ## Setup CI/CD
 - Go to jenkins ui at http://localhost:31000
 - Using credentials 
+```
 username: admin  
 password: password
+```
 
 - Create new project with ```multibranch pipeline``` type
 - Naviagate to configure and add following information
