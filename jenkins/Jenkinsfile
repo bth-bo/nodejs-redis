@@ -2,7 +2,11 @@ pipeline {
     agent any
 
     environment {
+<<<<<<< HEAD
         registry = "localhost:32000/hello-2"
+=======
+        registry "localhost:32000/hello-2"
+>>>>>>> c1e01c47c4655b1d744d4f437b4a3cf012afacac
         dockerImage = ''
     }
 
@@ -14,7 +18,10 @@ pipeline {
                 }
             }
         }
+<<<<<<< HEAD
     }
+=======
+>>>>>>> c1e01c47c4655b1d744d4f437b4a3cf012afacac
 
         stage('Build Image') {
             steps {
@@ -39,3 +46,7 @@ pipeline {
             }
         }
     }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> c1e01c47c4655b1d744d4f437b4a3cf012afacac

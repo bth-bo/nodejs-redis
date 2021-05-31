@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-1
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: hello-1
@@ -14,7 +14,11 @@ spec:
     spec:
       containers:
       - name: hello-1
+<<<<<<< HEAD
         image: localhost:32000/hello-1:feature
+=======
+        image: localhost:32000/hello-feature
+>>>>>>> c1e01c47c4655b1d744d4f437b4a3cf012afacac
         imagePullPolicy: Always
         ports:
         - containerPort: 8000

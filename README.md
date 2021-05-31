@@ -22,7 +22,12 @@ Create alias for shorter kubectl command
 ```alias mkctl="microk8s kubectl"```
 
 **2. Disable firewall or manaully allow these ports**
+<<<<<<< HEAD
 	
+=======
+
+- Private registry: 32000
+>>>>>>> c1e01c47c4655b1d744d4f437b4a3cf012afacac
 - Jenkins server: 31000
 - hello-1: 31230
 - hello-2: 31234
@@ -60,9 +65,15 @@ mkctl apply -f redis-service.yaml
 ## Setup CI/CD
 - Go to jenkins ui at http://localhost:31000
 - Using credentials 
+<<<<<<< HEAD
 ```username: admin
 password: password
 ```
+=======
+username: admin  
+password: password
+
+>>>>>>> c1e01c47c4655b1d744d4f437b4a3cf012afacac
 - Create new project with ```multibranch pipeline``` type
 - Naviagate to configure and add following information
 under ```Branch Sources``` select Git and put your repository in ```Project Repository``` field
@@ -79,7 +90,10 @@ create credential(generally, username and password)
 **You should be able to visit nodejs app**
 - hello-1: http://localhost/hello
 - hello-2: http://localhost/hello2
+<<<<<<< HEAD
 
 
 
 	
+=======
+>>>>>>> c1e01c47c4655b1d744d4f437b4a3cf012afacac

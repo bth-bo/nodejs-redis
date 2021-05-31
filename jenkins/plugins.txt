@@ -60,6 +60,7 @@ junit
 kerberos-sso
 kubernetes-cd
 ldap
+nodejs
 mailer
 mapdb-api
 matrix-auth
