@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-1
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: hello-1
@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: hello-1
-        image: localhost:32000/hello-1:testlocal
-        imagePullPolicy: IfNotPresent
+        image: localhost:32000/hello-feature
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         env:
