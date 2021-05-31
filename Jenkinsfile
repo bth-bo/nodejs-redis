@@ -45,6 +45,14 @@ pipeline {
             }
         }
 
+        stage('Test'){
+            steps {
+                scripts {
+                    sh 'npm test'
+                }
+            }
+        }
+
         stage('Clean old Image') {
             steps {
                 script { 
