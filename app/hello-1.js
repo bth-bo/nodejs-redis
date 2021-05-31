@@ -4,7 +4,7 @@ var redis = require('redis');
 
 app.get('/hello1', function (req, res) {
   writeSession()
-  res.send("Hello-1 world!")
+  res.send("Hello-1")
 })
 
 // app.listen(8000, () => console.log('Hello-1 listening on port 8000!'))
