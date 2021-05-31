@@ -33,6 +33,13 @@ Create alias for shorter kubectl command
 **4. Directory on localhost for keeping data inside jenkins server pod ($JENKINS-HOME)**
 ``` sudo mkdir /mnt/jenkins_home```
 
+**5. Nodejs and npm installed**
+
+**6. npm packages**
+```npm i express```
+```npm i mocha supertest --save-dev```
+```npm i redis```
+
 ## Usage
 
 **1. Jenkins server**
