@@ -31,7 +31,8 @@ Create alias for shorter kubectl command
 **3. Nginx service installed on your PC**
 
 **4. Directory on localhost for keeping data inside jenkins server pod ($JENKINS-HOME)**
-``` sudo mkdir /mnt/jenkins_home```
+
+```sudo mkdir /mnt/jenkins_home```
 
 **5. Nodejs and npm installed**
 
@@ -84,7 +85,7 @@ create credential(generally, username and password)
 ```cd /etc/nginx/sites-available/```
 - edit default by adding content in ```nginx-nodejs.txt``` under server section
 - Restart service for taking action
-``` sudo systemctl restart nginx.service```
+```sudo systemctl restart nginx.service```
 
 **You should be able to visit nodejs app**
 - hello-1: http://localhost/hello
