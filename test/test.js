@@ -1,6 +1,6 @@
 /* simple integration test*/
 
-const request = require("superset");
+const request = require("supertest");
 const app = require("../app/hello-2")
 
 describe("GET /", () => {
