@@ -97,3 +97,4 @@ create credential(generally, username and password)
 To make this repository works properly, you have to follow these steps
 - Follow all requirements
 - Master branch is still in progres, so you have to run this on Jenkins multibranch pipeline
+- The application hello-1 and hello-2 are on ```feature/<application_name>```
