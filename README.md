@@ -94,6 +94,6 @@ create credential(generally, username and password)
 - hello-2: http://localhost/hello2
 
 ## Known concerns 
-To make this repository works properly, you have to following these steps
-- Setup all the requirements
+To make this repository works properly, you have to follow these steps
+- Follow all requirements
 - Run this on Jenkins multibranch pipeline
