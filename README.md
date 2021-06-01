@@ -96,4 +96,4 @@ create credential(generally, username and password)
 ## Known concerns 
 To make this repository works properly, you have to follow these steps
 - Follow all requirements
-- Run this on Jenkins multibranch pipeline
+- Master branch is still in progres, so you have to run this on Jenkins multibranch pipeline
