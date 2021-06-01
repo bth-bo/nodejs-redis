@@ -92,3 +92,8 @@ create credential(generally, username and password)
 **You should be able to visit nodejs app**
 - hello-1: http://localhost/hello
 - hello-2: http://localhost/hello2
+
+## Known concerns 
+To make this repository works properly, you have to following these steps
+- Setup all the requirements
+- Run this on Jenkins multibranch pipeline
